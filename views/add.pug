@@ -1,0 +1,17 @@
+
+doctype html
+html
+  head
+  body
+    form(method='POST' action='/add')
+      div
+        label(for='id') id from 20:
+        input(type='text', placeholder='id' name='car_id')
+      div
+        label(for='name') Name:
+        input(type='name', placeholder='name' name='name')
+      div
+        label(for='Price') Price:
+        input(type='text', placeholder='Price' name='price')
+      button(type='submit') Add
+

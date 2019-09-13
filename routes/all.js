@@ -1,9 +1,15 @@
 const { Router } = require('express');
 const router = Router();
+const fs = require('fs');
 let { cars } = require('../store/cars.json');
 
 router.get('/', (req, res) => {
-    res.json({ cars });
+    fs.readFile('./store/cars.json', function(err, content) {
+        let parsejson = JSON.parse(content);
+        if (err) throw err;
+        res.json(JSON.stringify(parsejson));
+    })
+
 })
 router.get('/:id', (req, res) => {
     for (let k = 0; k < cars.length; k++) {
